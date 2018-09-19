@@ -8,7 +8,7 @@
     shell: "/bin/bash"
 
 - name: Ensure serveo user has private key.
-  shell: ssh-keygen -t rsa -b 4096 -C "serveo@{{domain}}" -N ''
+  shell: ssh-keygen -t rsa -b 4096 -C "serveo@{{domain}}" -f /home/serveo/.ssh/id_rsa -N ''
   args:
     creates: '/home/serveo/.ssh/id_rsa'
 
