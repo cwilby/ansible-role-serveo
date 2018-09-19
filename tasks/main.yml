@@ -19,4 +19,4 @@
     mode: 0755
 
 - name: Ensure serveo is running.
-  shell: serveo -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
+  shell: /usr/local/bin/serveo -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
