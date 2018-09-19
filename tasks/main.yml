@@ -15,7 +15,7 @@
 - name: Ensure serveo binary has been downloaded.
   get_url:
     url: https://storage.googleapis.com/serveo/download/2018-05-08/serveo-linux-amd64
-    dest: /usr/local/bin
+    dest: /usr/local/bin/serveo
     mode: 0755
 
 - name: Ensure serveo is running.
