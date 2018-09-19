@@ -1,0 +1,22 @@
+---
+- name: Ensure Serveo user exists.
+  user:
+    name: "serveo"
+    state: present
+    createhome: yes
+    append: yes
+    shell: "/bin/bash"
+
+- name: Ensure serveo user has private key.
+  shell: ssh-keygen -t rsa -b 4096 -C "serveo@{{domain}}" -N ''
+  args:
+    creates: '/home/serveo/.ssh/id_rsa'
+
+- name: Ensure serveo binary has been downloaded.
+  get_url:
+    url: https://storage.googleapis.com/serveo/download/2018-05-08/serveo-linux-amd64
+    dest: /usr/local/bin
+    mode: 0755
+
+- name: Ensure serveo is running.
+  shell: serveo -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443

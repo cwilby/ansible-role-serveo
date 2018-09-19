@@ -1,0 +1,3 @@
+---
+# Set the root domain which subdomains will sprout from, e.g. `abcdef.serveo.yourdomain.com`.
+domain: ""
