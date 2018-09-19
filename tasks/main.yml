@@ -15,8 +15,8 @@
 - name: Ensure serveo binary has been downloaded.
   get_url:
     url: https://storage.googleapis.com/serveo/download/2018-05-08/serveo-linux-amd64
-    dest: /usr/local/bin/serveo
+    dest: /usr/local/bin
     mode: 0755
 
 - name: Ensure serveo is running.
-  shell: /usr/local/bin/serveo -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
+  shell: /usr/local/bin/serveo-linux-amd64 -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
