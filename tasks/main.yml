@@ -3,9 +3,9 @@
   user: "{{serveo_user}}"
   get_url:
     url: https://storage.googleapis.com/serveo/download/2018-05-08/serveo-linux-amd64
-    dest: /usr/local/bin
+    dest: /home/{{serveo_user}}
     mode: 0755
 
 - name: Ensure serveo is running.
   user: "{{serveo_user}}"
-  shell: /usr/local/bin/serveo-linux-amd64 -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
+  shell: /home/{{serveo_user}}/serveo-linux-amd64 -private_key_path=$HOME/.ssh/id_rsa -port=22 -http_port=80 -https_port=443
